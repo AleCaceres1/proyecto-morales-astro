@@ -12,7 +12,11 @@ const currentYear = new Date().getFullYear();
           ? ' Todos los derechos reservados.'
           : ' All Rights Reserved.'}
       </p>
-
+      <img
+        src="/images/logo.png"
+        alt="Morales Auto Brokers"
+        class="logo"
+      />
   </div>
 </footer>
   
@@ -32,7 +36,13 @@ const currentYear = new Date().getFullYear();
   
       text-align: center;
     }
-  
+    
+    .logo {
+      width: 200px;
+      max-width: none;
+      height: auto;
+    }
+
     .footer-content p {
       color: var(--color-text-muted);
       font-size: .9rem;

@@ -9,24 +9,24 @@ export const languages = {
     en: {
       'nav.home': 'Home',
       'nav.services': 'Services',
-      'nav.contact': 'Contact',
+      'nav.disclaimer': 'Disclaimer',
       'nav.language.en': 'EN',
       'nav.language.es': 'ES',
   
       'home.title': 'Home',
       'services.title': 'Services',
-      'contact.title': 'Contact',
+      'disclaimer.title': 'Disclaimer',
     },
   
     es: {
       'nav.home': 'Inicio',
       'nav.services': 'Servicios',
-      'nav.contact': 'Contacto',
+      'nav.disclaimer': 'Aaviso Legal',
       'nav.language.en': 'EN',
       'nav.language.es': 'ES',
   
       'home.title': 'Inicio',
       'services.title': 'Servicios',
-      'contact.title': 'Contacto',
+      'disclaimer.title': 'Aviso Legal',
     },
   } as const;
