@@ -1,0 +1,55 @@
+---
+const { lang = 'en' } = Astro.props;
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container footer-content">
+
+    <p>
+        Morales Auto Brokers © {currentYear}.
+        {lang === 'es'
+          ? ' Todos los derechos reservados.'
+          : ' All Rights Reserved.'}
+      </p>
+
+  </div>
+</footer>
+  
+  <style>
+    .site-footer {
+      background: var(--color-bg-secondary);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      margin-top: 80px;
+    }
+  
+    .footer-content {
+      min-height: 80px;
+  
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  
+      text-align: center;
+    }
+  
+    .footer-content p {
+      color: var(--color-text-muted);
+      font-size: .9rem;
+      letter-spacing: .04em;
+    }
+  
+    @media (max-width:768px){
+  
+      .footer-content{
+        min-height:70px;
+        padding:20px 0;
+      }
+  
+      .footer-content p{
+        font-size:.8rem;
+        line-height:1.5;
+      }
+  
+    }
+  </style>

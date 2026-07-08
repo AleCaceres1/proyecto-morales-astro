@@ -1,0 +1,135 @@
+---
+const { lang = 'en' } = Astro.props;
+
+const title = lang === 'es' ? 'Aviso legal' : 'Disclaimer';
+const description =
+  lang === 'es'
+    ? 'Información importante sobre nuestros servicios y procesos.'
+    : 'Important information about our services and processes.';
+
+const href = `/${lang}/coming-soon`;
+---
+
+<section id="disclaimer" class="disclaimer-section section">
+  <div class="container">
+    <a href={href} class="disclaimer-card">
+      <div class="disclaimer-image">
+        <img src="images/disclaimer/disclaimer.jpg" alt={title} />
+      </div>
+
+      <div class="disclaimer-content">
+        <span class="disclaimer-eyebrow">
+          {lang === 'es' ? 'Información' : 'Information'}
+        </span>
+
+        <h2>{title}</h2>
+
+        <p>{description}</p>
+      </div>
+    </a>
+  </div>
+</section>
+
+<style>
+  .disclaimer-section {
+    background: var(--color-bg);
+    padding-top: 20px;
+  }
+
+  .disclaimer-card {
+    width: min(100%, 900px);
+    min-height: 360px;
+    margin-inline: auto;
+
+    display: grid;
+    grid-template-columns: 45% 55%;
+
+    overflow: hidden;
+    border-radius: 28px;
+
+    background:
+      linear-gradient(145deg, rgba(255,255,255,.08), rgba(255,255,255,.02)),
+      var(--color-bg-secondary);
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    transition: .25s ease;
+  }
+
+  .disclaimer-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--color-accent);
+  }
+
+  .disclaimer-image {
+    position: relative;
+    min-height: 260px;
+  }
+
+  .disclaimer-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .disclaimer-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+      to right,
+      rgba(0,0,0,0) 35%,
+      var(--color-bg-secondary) 100%
+    );
+  }
+
+  .disclaimer-content {
+    padding: 42px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .disclaimer-eyebrow {
+    color: var(--color-accent);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .14em;
+    margin-bottom: 12px;
+  }
+
+  .disclaimer-content h2 {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .disclaimer-content p {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .disclaimer-card {
+      grid-template-columns: 1fr;
+    }
+
+    .disclaimer-image {
+      min-height: 180px;
+    }
+
+    .disclaimer-image::after {
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0) 35%,
+        var(--color-bg-secondary) 100%
+      );
+    }
+
+    .disclaimer-content {
+      padding: 28px;
+      text-align: center;
+    }
+  }
+</style>

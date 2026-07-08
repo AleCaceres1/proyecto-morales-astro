@@ -1,0 +1,168 @@
+---
+const { lang = 'en' } = Astro.props;
+
+const baseUrl = `/${lang}`;
+
+const services = [
+  {
+    title: lang === 'es' ? 'Subastas' : 'Bids',
+    description: lang === 'es'
+      ? 'Encuentra el vehículo ideal para ti.'
+      : 'Find the ideal vehicle for you.',
+    href: `${baseUrl}/coming-soon`,
+  },
+  {
+    title: lang === 'es' ? 'Documentacion (Solo Massachusetts)' : 'Documentation (Only Massachusetts)',
+    description: lang === 'es'
+      ? 'Documentación relevante el estado de Massachusetts.'
+      : 'Relevant documentation from the state of Massachusetts.',
+    href: `${baseUrl}/coming-soon`,
+  },
+  {
+    title: lang === 'es' ? 'Guías' : 'Guides',
+    description: lang === 'es'
+      ? 'Documentación en forma de guías para procesos aduaneros.'
+      : 'Documentation in the form of guides for customs procedures.',
+    href: `${baseUrl}/coming-soon`,
+  },
+  {
+    title: lang === 'es' ? 'Tutoriales' : 'Tutorials',
+    description: lang === 'es'
+      ? 'Tutorias Presenciales/Virtuales.'
+      : 'In-Person/Online Tutoring.',
+    href: `${baseUrl}/coming-soon`,
+  },
+];
+---
+
+<section id="services" class="services-section section">
+  <div class="container">
+    <div class="services-header">
+      <p>{lang === 'es' ? 'Nuestros servicios' : 'Our Services'}</p>
+      <h2>
+        {lang === 'es'
+          ? 'Soluciones para encontrar tu próximo vehículo'
+          : 'Solutions to find your next vehicle'}
+      </h2>
+    </div>
+
+    <div class="services-grid">
+      {services.map((service) => (
+        <a href={service.href} class="service-card">
+          <span class="service-icon">↗</span>
+          <h3>{service.title}</h3>
+          <p>{service.description}</p>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .services-section {
+    background: var(--color-bg);
+  }
+
+  .services-header {
+    max-width: 760px;
+    margin-bottom: 42px;
+  }
+
+  .services-header p {
+    color: var(--color-accent);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-bottom: 12px;
+  }
+
+  .services-header h2 {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    line-height: 1.05;
+    text-transform: uppercase;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+  }
+
+  .service-card {
+    min-height: 240px;
+    padding: 28px;
+    border-radius: 22px;
+
+    background:
+      linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02)),
+      var(--color-bg-secondary);
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    display: flex;
+    flex-direction: column;
+
+    transition: .25s ease;
+}
+
+  .service-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--color-accent);
+    background:
+      linear-gradient(145deg, rgba(214,31,38,0.22), rgba(255,255,255,0.03)),
+      var(--color-bg-secondary);
+  }
+
+  .service-icon {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+
+    background: var(--color-accent);
+
+    display: grid;
+    place-items: center;
+
+    font-weight: 900;
+
+    margin-bottom: 36px;
+}
+
+  .service-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+  }
+
+  .service-card p {
+    color: var(--color-text-muted);
+    line-height: 1.5;
+  }
+
+  @media (max-width: 768px) {
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .service-card {
+      min-height: 190px;
+      padding: 18px;
+      border-radius: 18px;
+    }
+
+    .service-icon {
+      width: 34px;
+      height: 34px;
+      font-size: 0.9rem;
+    }
+
+    .service-card h3 {
+      font-size: 1rem;
+    }
+
+    .service-card p {
+      font-size: 0.85rem;
+    }
+  }
+</style>

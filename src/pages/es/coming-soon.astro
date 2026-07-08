@@ -1,0 +1,85 @@
+---
+import '../../styles/global.css';
+import Header from '../../components/Header.astro';
+
+const lang = 'es';
+---
+
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Próximamente | Morales Auto Brokers</title>
+  </head>
+
+  <body>
+    <Header lang={lang} />
+
+    <main class="coming-soon-page">
+      <section class="coming-soon">
+        <div class="container coming-soon-content">
+          <p class="eyebrow">Mejora futura</p>
+          <h1>Estamos trabajando en ello</h1>
+          <p>
+            Esta sección está actualmente en desarrollo. Pronto encontrarás más
+            información aquí.
+          </p>
+
+          <a href="/es" class="coming-soon-button">Volver al inicio</a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
+
+<style>
+  .coming-soon {
+    min-height: calc(100vh - var(--header-height));
+    display: grid;
+    place-items: center;
+    text-align: center;
+    background:
+      radial-gradient(circle at center, rgba(214, 31, 38, 0.18), transparent 35%),
+      var(--color-bg);
+  }
+
+  .coming-soon-content {
+    max-width: 720px;
+  }
+
+  .eyebrow {
+    color: var(--color-accent);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 16px;
+  }
+
+  .coming-soon h1 {
+    font-size: clamp(2.8rem, 7vw, 6rem);
+    line-height: 1;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+  }
+
+  .coming-soon p {
+    color: var(--color-text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 32px;
+  }
+
+  .coming-soon-button {
+    display: inline-flex;
+    background: var(--color-accent);
+    color: white;
+    padding: 14px 28px;
+    border-radius: 999px;
+    font-weight: 800;
+    transition: 0.25s ease;
+  }
+
+  .coming-soon-button:hover {
+    background: var(--color-accent-dark);
+    transform: translateY(-2px);
+  }
+</style>
